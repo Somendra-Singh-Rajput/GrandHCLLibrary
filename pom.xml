@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hcl</groupId>
-	<artifactId>library</artifactId>
+	<artifactId>GrandHCLLibrary</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>HCLLibrary</name>
+	<name>GrandHCLLibrary</name>
 	<description>This is a full library management system using springboot</description>
 	<properties>
 		<java.version>1.8</java.version>

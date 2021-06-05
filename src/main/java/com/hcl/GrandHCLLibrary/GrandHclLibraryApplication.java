@@ -1,13 +1,13 @@
-package com.hcl.library;
+package com.hcl.GrandHCLLibrary;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HclLibraryApplication {
+public class GrandHclLibraryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HclLibraryApplication.class, args);
+		SpringApplication.run(GrandHclLibraryApplication.class, args);
 	}
 
 }

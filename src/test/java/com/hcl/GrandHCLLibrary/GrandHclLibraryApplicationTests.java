@@ -1,10 +1,10 @@
-package com.hcl.library;
+package com.hcl.GrandHCLLibrary;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HclLibraryApplicationTests {
+class GrandHclLibraryApplicationTests {
 
 	@Test
 	void contextLoads() {
