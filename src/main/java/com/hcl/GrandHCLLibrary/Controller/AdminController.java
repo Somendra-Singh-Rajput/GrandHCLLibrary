@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.hcl.library.model.Admin;
-import com.hcl.library.service.AdminService;
+import com.hcl.GrandHCLLibrary.Entity.Admin;
+import com.hcl.GrandHCLLibrary.Service.AdminService;
 
 import java.util.List;
 import java.util.NoSuchElementException;

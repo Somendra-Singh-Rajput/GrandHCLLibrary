@@ -5,16 +5,20 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.hcl.library.model.Admin;
-import com.hcl.library.repository.AdminRepository;
+import com.hcl.GrandHCLLibrary.Service.AdminService;
+import com.hcl.GrandHCLLibrary.Entity.Admin;
+import com.hcl.GrandHCLLibrary.Repository.AdminRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+
 @Service
 @Transactional
 public class AdminService {
+	
     @Autowired
     private AdminRepository adminRepository;
+    
     public List<Admin> listAllUser() {
         return adminRepository.findAll();
     }
