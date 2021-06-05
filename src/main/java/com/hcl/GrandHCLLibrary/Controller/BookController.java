@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,6 +38,17 @@ public class BookController {
 		}
 	}
 	
+	@GetMapping("/get/{id}")
+	public ResponseEntity<?> getBookById(Long id){
+		try {
+			Book book = bookService.getBookById(id);
+			return new ResponseEntity<Book>(book,HttpStatus.OK);
+		}catch(BookException e) {
+			BookControllerException bce = new BookControllerException("607","Something is wrong with book controller.");
+			return new ResponseEntity<BookControllerException>(bce,HttpStatus.OK);
+		}
+	}
+	
 	@GetMapping("/getall")
 	public ResponseEntity<?> getAllBooks(){
 		try {
@@ -48,10 +60,11 @@ public class BookController {
 		}
 	}
 	
-	@PutMapping("/update")
-	public ResponseEntity<?> updateBook(@RequestBody Book book){	
+	
+	@PutMapping("/update/{id}")
+	public ResponseEntity<?> updateBook(@RequestBody Book book, @PathVariable long uuid){	
 		try {
-			Book book1 = bookService.updateBoook(book);		
+			Book book1 = bookService.updateBoook(book,uuid);		
 			return new ResponseEntity<Book>(book1,HttpStatus.CREATED);
 		}catch(BookException e) {
 			BookControllerException bce = new BookControllerException(e.getErrorCode(),e.getErrorMessage());

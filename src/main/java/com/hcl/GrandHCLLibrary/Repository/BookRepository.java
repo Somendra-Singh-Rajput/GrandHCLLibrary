@@ -7,4 +7,5 @@ import com.hcl.GrandHCLLibrary.Entity.Book;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
+	public Book findBookById(long uuid);
 }
