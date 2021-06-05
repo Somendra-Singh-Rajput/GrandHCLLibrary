@@ -1,0 +1,6 @@
+ create table library_admin.book_details(
+     id int NOT NULL AUTO_INCREMENT primary key,
+     book_name varchar(50) NOT NULL,
+     member_name varchar(50) NOT NULL,
+     borrowed_status varchar(50) NOT NULL,
+     book_edition varchar(50) NOT NULL);

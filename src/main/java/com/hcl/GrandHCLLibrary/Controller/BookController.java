@@ -1,9 +1,13 @@
 package com.hcl.GrandHCLLibrary.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,9 +32,33 @@ public class BookController {
 			BookControllerException bce = new BookControllerException(e.getErrorCode(),e.getErrorMessage());
 			return new ResponseEntity<BookControllerException>(bce,HttpStatus.CREATED);
 		}catch(Exception e) {
-			BookControllerException bce = new BookControllerException("603","Something is wrong with book controller.");
+			BookControllerException bce = new BookControllerException("604","Something is wrong with book controller.");
 			return new ResponseEntity<BookControllerException>(bce,HttpStatus.CREATED);
 		}
 	}
 	
+	@GetMapping("/getall")
+	public ResponseEntity<?> getAllBooks(){
+		try {
+			List<Book> list = bookService.getAllBooks();
+			return new ResponseEntity<List<Book>>(list,HttpStatus.OK);
+		}catch(BookException e) {
+			BookControllerException bce = new BookControllerException("607","Something is wrong with book controller.");
+			return new ResponseEntity<BookControllerException>(bce,HttpStatus.OK);
+		}
+	}
+	
+	@PutMapping("/update")
+	public ResponseEntity<?> updateBook(@RequestBody Book book){	
+		try {
+			Book book1 = bookService.updateBoook(book);		
+			return new ResponseEntity<Book>(book1,HttpStatus.CREATED);
+		}catch(BookException e) {
+			BookControllerException bce = new BookControllerException(e.getErrorCode(),e.getErrorMessage());
+			return new ResponseEntity<BookControllerException>(bce,HttpStatus.CREATED);
+		}catch(Exception e) {
+			BookControllerException bce = new BookControllerException("611","Something is wrong with book controller.");
+			return new ResponseEntity<BookControllerException>(bce,HttpStatus.CREATED);
+		}
+	}
 }

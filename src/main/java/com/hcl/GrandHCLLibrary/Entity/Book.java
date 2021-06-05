@@ -1,24 +1,22 @@
 package com.hcl.GrandHCLLibrary.Entity;
 
 import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="books")
 public class Book {
 	
-    @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "uuid", columnDefinition = "VARCHAR(255)")
-	private UUID uuid;
+	@Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "uuid", updatable = false, nullable = false)
+    private UUID uuid;
 	private long rackNo;
 	private String title;
 	private String author;
